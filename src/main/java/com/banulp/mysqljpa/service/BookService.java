@@ -14,8 +14,8 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public Page<Book> getBooks(){
-        return bookRepository.findAll(PageRequest.of(2, 15, Sort.by("id")));
+    public Page<Book> getBooks(int page, int size){
+        return bookRepository.findAll(PageRequest.of(page, size, Sort.by("id")));
     }
 
 }
