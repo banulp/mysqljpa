@@ -17,7 +17,7 @@ public class BookController {
     BookService bookService;
 
     @GetMapping("/getBooks")
-    public Page<Book> getBooks(@RequestParam int page, @RequestParam int size ){
+    public Page<Book> getBooks(@RequestParam(required=false, defaultValue="1")  int page, @RequestParam(required=false, defaultValue="30")  int size ){
         return bookService.getBooks(page, size);
     }
 
