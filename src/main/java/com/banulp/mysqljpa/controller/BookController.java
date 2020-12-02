@@ -28,6 +28,11 @@ public class BookController {
         return bookService.getBooksSearchPage(page-1, size, keyword);
     }
 
+    @GetMapping("/getBooksEaPage")
+    public Page<Book> getBooksExample(@RequestParam(required=false, defaultValue="1")  int page, @RequestParam(required=false, defaultValue="30")  int size,  @RequestParam(required=false, defaultValue="a") String keyword){
+        return bookService.getBooksExamplePage(page-1, size, keyword);
+    }
+
     @GetMapping("/getBooksSearchList")
     public List<Book> getBooksSearchList(@RequestParam(required=false, defaultValue="a") String keyword){
         return bookService.getBooksSearchList(keyword);
