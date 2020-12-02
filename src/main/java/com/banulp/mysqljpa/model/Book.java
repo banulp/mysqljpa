@@ -14,7 +14,7 @@ public class Book {
     private String title;
     private String author;
     private String story;
-    private int star;
+    private Integer star;
 
     public Book() {
     }
@@ -51,11 +51,11 @@ public class Book {
         this.story = story;
     }
 
-    public int getStar() {
+    public Integer getStar() {
         return star;
     }
 
-    public void setStar(int star) {
+    public void setStar(Integer star) {
         this.star = star;
     }
 }

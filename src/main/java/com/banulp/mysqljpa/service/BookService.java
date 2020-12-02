@@ -27,8 +27,13 @@ public class BookService {
     }
 
     public Page<Book> getBooksExamplePage(int page, int size, String keyword){
-        ExampleMatcher em = ExampleMatcher.matchingAny()
-                .withMatcher("author", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase());
+        // 1. this work
+//        ExampleMatcher em = ExampleMatcher.matchingAny()
+//                .withMatcher("author", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase());
+
+        // 2. and this work
+        ExampleMatcher em = ExampleMatcher.matchingAll().withStringMatcher(ExampleMatcher.StringMatcher.ENDING);
+
         Book b = new Book();
         b.setAuthor(keyword);
         Example<Book> example = Example.of(b, em);
